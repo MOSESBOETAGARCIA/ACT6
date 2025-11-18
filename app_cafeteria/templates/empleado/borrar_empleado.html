@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Borrar Empleado</h2>
+<p>¿Estás seguro de que quieres borrar al empleado "{{ empleado.nombre }} {{ empleado.apellido }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">🗑️ Sí, Borrar</button>
+    <a href="{% url 'ver_empleado' %}">❌ Cancelar</a>
+</form>
+{% endblock %}

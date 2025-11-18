@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Lista de Proveedores</h2>
+<button onclick="window.location.href='{% url 'agregar_proveedor' %}'">➕ Agregar Nuevo Proveedor</button>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre Proveedor</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+            <th>ID Producto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{ proveedor.id_proveedor }}</td>
+            <td>{{ proveedor.nombre_proveedor }}</td>
+            <td>{{ proveedor.cantidad }}</td>
+            <td>{{ proveedor.precio }}</td>
+            <td>{{ proveedor.total }}</td>
+            <td>{{ proveedor.id_producto }}</td>
+            <td class="actions">
+                <a href="{% url 'actualizar_proveedor' proveedor.id_proveedor %}">✏️ Editar</a>
+                <a href="{% url 'borrar_proveedor' proveedor.id_proveedor %}">🗑️ Borrar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

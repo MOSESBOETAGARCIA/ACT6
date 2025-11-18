@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Agregar Cliente</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" required>
+
+    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" name="telefono" required>
+
+    <label for="fecha_ingreso">Fecha de Ingreso:</label>
+    <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
+
+    <label for="domicilio">Domicilio:</label>
+    <textarea id="domicilio" name="domicilio" required></textarea>
+
+    <button type="submit">➕ Agregar Cliente</button>
+</form>
+{% endblock %}

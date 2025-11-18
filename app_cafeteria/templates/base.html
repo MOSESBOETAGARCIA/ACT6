@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <button onclick="window.location.href='{% url 'inicio' %}'">🏠 Inicio</button>
+            <button onclick="window.location.href='{% url 'ver_empleado' %}'">👥 Empleados</button>
+            <button onclick="window.location.href='{% url 'ver_cliente' %}'">👤 Clientes</button>
+            <button onclick="window.location.href='{% url 'ver_ordenes' %}'">☕ Órdenes</button>
+            <button onclick="window.location.href='{% url 'ver_producto' %}'">📦 Productos</button>
+            <button onclick="window.location.href='{% url 'ver_proveedor' %}'">🏢 Proveedores</button>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

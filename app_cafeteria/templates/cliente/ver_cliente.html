@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Lista de Clientes</h2>
+<button onclick="window.location.href='{% url 'agregar_cliente' %}'">➕ Agregar Nuevo Cliente</button>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Fecha de Ingreso</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellido }}</td>
+            <td>{{ cliente.correo }}</td>
+            <td>{{ cliente.telefono }}</td>
+            <td>{{ cliente.fecha_ingreso }}</td>
+            <td class="actions">
+                <a href="{% url 'actualizar_cliente' cliente.id %}">✏️ Editar</a>
+                <a href="{% url 'borrar_cliente' cliente.id %}">🗑️ Borrar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

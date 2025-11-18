@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Borrar Orden</h2>
+<p>¿Estás seguro de que quieres borrar la orden "{{ orden.id_orden }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">🗑️ Sí, Borrar</button>
+    <a href="{% url 'ver_ordenes' %}">❌ Cancelar</a>
+</form>
+{% endblock %}

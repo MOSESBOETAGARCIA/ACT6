@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Actualizar Proveedor</h2>
+<form method="post">
+    {% csrf_token %}
+    <label for="nombre_proveedor">Nombre Proveedor:</label>
+    <input type="text" id="nombre_proveedor" name="nombre_proveedor" value="{{ proveedor.nombre_proveedor }}" required><br>
+
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" id="cantidad" name="cantidad" value="{{ proveedor.cantidad }}" required><br>
+
+    <label for="precio">Precio:</label>
+    <input type="number" step="0.01" id="precio" name="precio" value="{{ proveedor.precio }}" required><br>
+
+    <label for="total">Total:</label>
+    <input type="number" step="0.01" id="total" name="total" value="{{ proveedor.total }}" required><br>
+
+    <label for="id_producto">Producto:</label>
+    <select id="id_producto" name="id_producto">
+        <option value="">Sin producto</option>
+        {% for producto in productos %}
+        <option value="{{ producto.id_productos }}" {% if producto.id_productos == proveedor.id_producto.id_productos %}selected{% endif %}>{{ producto }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Actualizar Proveedor</button>
+</form>
+{% endblock %}
